@@ -10,4 +10,9 @@ Foi configurado um job no AppServer para o envio de mensagens e documentos atrá
   <img src="printAppServer.png" >
 </p>
 
-Documentos
+**Documentos enviados**
+* Nota fiscal de saída (DANFE)
+* Nota fiscal de entrada (RPS)
+* Ordem de servico (Relatório de OS)
+* Orcamento (Relatório de orçamento)
+* Boletos (Banco do brasil, Itaú)
