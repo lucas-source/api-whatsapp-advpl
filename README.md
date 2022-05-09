@@ -12,7 +12,7 @@ Foi configurado um job no AppServer para o envio de mensagens e documentos atrá
 
 **Mensagem:**
 <p align="left">
-  <img src="fotowhts.png" width="250">
+  <img src="fotowhts.png" width="450">
 </p>
 
 **Documentos enviados**
