@@ -99,7 +99,7 @@ Return Self
 
 /**************************************************************************************************
 {Protheus.doc} ZAPLV
-@description	Se n„o tiver ambiente aberto, Reseta o ambiente e abre ele novamente
+@description	Se n√£o tiver ambiente aberto, Reseta o ambiente e abre ele novamente
 @type   		Method	
 @author			Lucas Rocha Vieira
 @version   		1.00
@@ -129,7 +129,7 @@ Return
 /**************************************************************************************************
 {Protheus.doc} ZAPLV
 @description	Monta a consulta das NFs, que tenham chave de acesso,
-                e foi colocado uma data de corte para n„o processar NFs antigas.
+                e foi colocado uma data de corte para n√£o processar NFs antigas.
 @type   		Method	
 @author			Lucas Rocha Vieira
 @version   		1.00
@@ -209,7 +209,7 @@ Method mValid() Class ZAPLV
     SF2->(DbGoTo((Self:_cAlias)->SF2REC))
 
     DbSelectArea('SA1')  // Cliente
-    SA1->(DbSetOrder(1)) // Filial + CÛdigo + Loja
+    SA1->(DbSetOrder(1)) // Filial + C√≥digo + Loja
     If !(SA1->(DbSeek(FWxFilial('SA1') + SF2->F2_CLIENTE + SF2->F2_LOJA)))
         Self:_cMsg :=   "Nao foi possivel localizar o cliente"  +CRLF+;
                         "Cliente cadastrado na SF2"             +CRLF+;
@@ -548,8 +548,6 @@ Default _cPastRPS   := ""
     If File(cPasta + cArqDanfe+".pdf") 
         Self:aZap  := u_zZapSend("55" + cDDD + cTelefone    , cMensagem, cPasta + cArqDanfe+".pdf")
         Sleep( 1000 ) // thread corrente deixe de ser executada por 1 Segundo
-        //Self:aZap  := u_zZapSend("55" +  "61"+ "982649904"  , cMensagem, cPasta + cArqDanfe+".pdf") // Numero Lucas Rocha - Analisata de sistemas
-        //u_zZapSend("55" +  "61"+ "99136991"   , cMensagem, cPasta + cArqDanfe+".pdf") // Numero Anderson - Gerente T.I
         FErase(cPasta + cArqDanfe +".pdf")
         FErase(cPasta + cArqDanfe +".xml")
         
@@ -563,8 +561,6 @@ Default _cPastRPS   := ""
     //-----------------------------------------------------
     If File(_cPastRPS + _cArqRps+".pdf")
         Self:aZap  := u_zZapSend("55" + cDDD + cTelefone  , cMsgOs, _cPastaOs + _cArqOs+".pdf")
-        //Self:aZap  :=u_zZapSend("55" +  "61"+ "982649904", cMsgRPS, _cPastRPS + _cArqRps+".pdf")
-        //u_zZapSend("55" +  "61"+ "99136991" , cMsgRPS, _cPastRPS + _cArqRps+".pdf")
         FErase(_cPastRPS + _cArqRps +".pdf")
 
         Self:_lEnvio := Self:aZap[1]
@@ -581,10 +577,6 @@ Default _cPastRPS   := ""
             //-----------------------------------------------------
             ::mMailBol(cPasta , _cArqBol)
             Self:aZap  := u_zZapSend("55" + cDDD + cTelefone  , cMsgBol, cPasta + _cArqBol+".pdf")
-            //u_zZapSend("55" +  "61"+ "982649904", cMsgBol, cPasta + _cArqBol+".pdf")
-            //u_zZapSend("55" +  "61"+ "99136991" , cMsgBol, cPasta + _cArqBol+".pdf")
-
-
             FErase(cPasta + _cArqBol +".pdf")
             Self:_lEnvio := Self:aZap[1]
         EndIf 
@@ -597,8 +589,6 @@ Default _cPastRPS   := ""
     If Self:_nCntOS > 0 
         If File(_cPastaOs + _cArqOs+".pdf")
             Self:aZap  := u_zZapSend("55" + cDDD + cTelefone  , cMsgOs, _cPastaOs + _cArqOs+".pdf")
-           //Self:aZap  := u_zZapSend("55" +  "61"+ "982649904", cMsgOs, _cPastaOs + _cArqOs+".pdf")
-            //u_zZapSend("55" +  "61"+ "99136991" , cMsgOs, _cPastaOs + _cArqOs+".pdf")
             FErase(_cPastaOs + _cArqOs +".pdf")
             Self:_lEnvio := Self:aZap[1]
         EndIf 
@@ -610,9 +600,7 @@ Default _cPastRPS   := ""
     //-----------------------------------------------------
     If Self:_nCntOrc > 0 
         If File(_cPastaOs + _cArqOs+".pdf")
-            Self:aZap  := u_zZapSend("55" + cDDD + cTelefone  , "OrÁamento:", _cPastaOs + _cArqOs+".pdf")
-            u_zZapSend("55" +  "61"+ "982649904", "OrÁamento:", _cPastaOs + _cArqOs+".pdf")
-            //u_zZapSend("55" +  "61"+ "99136991" , cMsgOs, _cPastaOs + _cArqOs+".pdf")
+            Self:aZap  := u_zZapSend("55" + cDDD + cTelefone  , "Or√ßamento:", _cPastaOs + _cArqOs+".pdf")
             FErase(_cPastaOs + _cArqOs +".pdf")
             Self:_lEnvio := Self:aZap[1]
         EndIf 
@@ -900,7 +888,7 @@ _cHtml += '<table style="background-color: rgb(240, 240, 240); width: 800px; tex
 _cHtml += '  <tbody>
 _cHtml += '    <tr>
 _cHtml += '		<td>
-_cHtml += '			<div class="style3">Concession·rio Autorizado John Deere</div>	
+_cHtml += '			<div class="style3">Concession√°rio Autorizado John Deere</div>	
 _cHtml += '			<!--<div class="style2">LucasRocha</div> -->
 _cHtml += '		</td>
 _cHtml += '		<td>
@@ -921,8 +909,8 @@ _cHtml += '	  <td colspan="2">
 _cHtml += '		<div class="style4">Sua fatura chegou! :)</div> 
 _cHtml += '		<br>
 _cHtml += '		<div class="style5">
-_cHtml += '			Este e-mail È um resumo da sua fatura.<br>
-_cHtml += '			Para visualizar a vers„o completa, baixe o anexo ou entre em contato conosco. 
+_cHtml += '			Este e-mail √© um resumo da sua fatura.<br>
+_cHtml += '			Para visualizar a vers√£o completa, baixe o anexo ou entre em contato conosco. 
 _cHtml += '		</div> 
 _cHtml += '	  </td>
 _cHtml += '	</tr>
@@ -947,7 +935,7 @@ _cHtml += '      </td>
 _cHtml += '	  <td colspan="1">
 _cHtml += '	  	<div style="font-size: 12pt; font-family: times new roman;width: 400px; height: 50px; background-color: rgb(211,211,211); margin-right: 50px">
 _cHtml += '			</br>
-_cHtml += '			<div> N∫ da Fatura: '+AllTrim(SF2->F2_DOC)+'  Parc: '+AllTrim((Self:_cAliasBol)->E1_PARCELA)+' </div>'
+_cHtml += '			<div> N¬∫ da Fatura: '+AllTrim(SF2->F2_DOC)+'  Parc: '+AllTrim((Self:_cAliasBol)->E1_PARCELA)+' </div>'
 _cHtml += '			</br>			
 _cHtml += '		</div>
 _cHtml += '	  </td>
@@ -970,11 +958,11 @@ _cHtml += '	  </td>
 _cHtml += '    </tr>	
 _cHtml += '	<tr>
 _cHtml += '      <td colspan="2">
-_cHtml += '		<div class="style8">Utilize o n˙mero do cÛdigo de barras abaixo para realizar o pagamento.</div>
+_cHtml += '		<div class="style8">Utilize o n√∫mero do c√≥digo de barras abaixo para realizar o pagamento.</div>
 _cHtml += '		
 _cHtml += '		<div class="style6" style="width: 830px; height: 50px; background-color: rgb(255,222,0); margin-left: 50px; margin-right: 50px" >
 _cHtml += '			</br>
-_cHtml += '			<div>CÛdigo de barras:<b> '+AllTrim(_cCodBarra)+' </b></div>
+_cHtml += '			<div>C√≥digo de barras:<b> '+AllTrim(_cCodBarra)+' </b></div>
 _cHtml += '			</br>
 _cHtml += '		</div>		
 _cHtml += '      </td>
@@ -1082,7 +1070,7 @@ Method mPreparaDoc(cPasta, cArqDanfe,_cArqXml, _cArqBol, _cArqOs, _cPastaOs, _cA
 
 
     //--------------------------------------------------------------------------------------
-    //Se a filial for diferente, troca a empresa na memÛria
+    //Se a filial for diferente, troca a empresa na mem√≥ria
     //--------------------------------------------------------------------------------------
     If cFilAnt != (Self:_cAlias)->F2_FILIAL
         cFilAnt := (Self:_cAlias)->F2_FILIAL
@@ -1102,7 +1090,7 @@ Method mPreparaDoc(cPasta, cArqDanfe,_cArqXml, _cArqBol, _cArqOs, _cPastaOs, _cA
     _cArqOs   := "OS_"    + Alltrim((Self:_cAlias)->F2_FILIAL)+Alltrim((Self:_cAlias)->F2_DOC)+Alltrim((Self:_cAlias)->F2_SERIE) + StrTran( Time() , ":" , "" )
     _cArqRps  := "RPS_"   + Alltrim((Self:_cAlias)->F2_FILIAL)+Alltrim((Self:_cAlias)->F2_DOC)+Alltrim((Self:_cAlias)->F2_SERIE) + StrTran( Time() , ":" , "" )
     //---------------------------------------------------------------------------
-    //Se o arquivo danfe existir, faz a exclus„o dele
+    //Se o arquivo danfe existir, faz a exclus√£o dele
     //---------------------------------------------------------------------------
     If File(cPasta + cArqDanfe+".pdf") .OR. File(cPasta + _cArqXml + ".xml") .OR. File(cPasta + _cArqBol+".pdf") 
         FErase(cPasta + cArqDanfe   + ".pdf")
@@ -1112,7 +1100,7 @@ Method mPreparaDoc(cPasta, cArqDanfe,_cArqXml, _cArqBol, _cArqOs, _cPastaOs, _cA
     EndIf
 
     //---------------------------------------------------------------------------
-    //Se o arquivo da OS existir, faz a exclus„o dele
+    //Se o arquivo da OS existir, faz a exclus√£o dele
     //---------------------------------------------------------------------------
     If File(_cPastaOs + _cArqOs+".pdf") 
         FErase(_cPastaOs + _cArqOs   + ".pdf")
@@ -1152,7 +1140,7 @@ Local cFolha      := "\uD83D\uDCC4"
 Local dAno        := YEAR(DATE())
 
     //------------------------------------------------------------------
-    //Se tiver o contato, usa ele, do contr·rio, usa o nome reduzido
+    //Se tiver o contato, usa ele, do contr√°rio, usa o nome reduzido
     //------------------------------------------------------------------
     If !Empty(SA1->A1_CONTATO)
         cNome := Alltrim(SA1->A1_CONTATO)
@@ -1163,7 +1151,7 @@ Local dAno        := YEAR(DATE())
     cNome := Capital(cNome)
 
     //--------------------------------------------------------------------------------------------------
-    //Pega o DDD, e se o usu·rio ter digitado 3 caracteres, retira o primeiro, por exemplo, 014 -> 14
+    //Pega o DDD, e se o usu√°rio ter digitado 3 caracteres, retira o primeiro, por exemplo, 014 -> 14
     //--------------------------------------------------------------------------------------------------
     cDDD := Alltrim(SA1->A1_DDD)
     If Len(cDDD) == 3
@@ -1173,54 +1161,54 @@ Local dAno        := YEAR(DATE())
     cTelefone := Alltrim(SA1->A1_TEL)
 
     //---------------------------------------------------------------
-    //Monta a mensagem que ser· enviada ao cliente na Danfe
+    //Monta a mensagem que ser√° enviada ao cliente na Danfe
     //---------------------------------------------------------------
-    cMensagem := '<b>'+'Ol· ' + cNome + '</b>, ' + '<br>' + CRLF
+    cMensagem := '<b>'+'Ol√° ' + cNome + '</b>, ' + '<br>' + CRLF
     cMensagem += '<br>' + CRLF
-    cMensagem += 'Sua Nota Fiscal EletrÙnica Nacional foi gerada.'  + cFolha + '<br>' + CRLF
+    cMensagem += 'Sua Nota Fiscal Eletr√¥nica Nacional foi gerada.'  + cFolha + '<br>' + CRLF
     cMensagem += '<br>' + CRLF
-    cMensagem += 'N˙mero: '+Self:_cNota+ '<br>' + CRLF 
-    cMensagem += 'Para verificar a autorizaÁ„o da SEFAZ referente ‡ nota acima mencionada, acesse o site: '+_cLinkSfz+ '<br>' + CRLF    
+    cMensagem += 'N√∫mero: '+Self:_cNota+ '<br>' + CRLF 
+    cMensagem += 'Para verificar a autoriza√ß√£o da SEFAZ referente √† nota acima mencionada, acesse o site: '+_cLinkSfz+ '<br>' + CRLF    
     cMensagem += 'Chave de acesso: '+AllTrim(SF2->F2_CHVNFE)+ '<br>' + CRLF 
     cMensagem += '<br>' + CRLF
-    cMensagem += 'Esta mensagem foi enviada automaticamente pelo Sistema de Nota Fiscal EletrÙnica (NF-e) da LucasRocha '+ '<br>' + CRLF 
+    cMensagem += 'Esta mensagem foi enviada automaticamente pelo Sistema de Nota Fiscal Eletr√¥nica (NF-e) da LucasRocha '+ '<br>' + CRLF 
     cMensagem += '<br>' + CRLF
-    cMensagem += 'Caso tenha alguma d˙vida, È sÛ contatar a nossa equipe:'+ '<br>' + CRLF 
+    cMensagem += 'Caso tenha alguma d√∫vida, √© s√≥ contatar a nossa equipe:'+ '<br>' + CRLF 
     cMensagem += 'financeiro@LucasRocha.com.br'+ '<br>' + CRLF 
     cMensagem += '(61)3030-3666'+ '<br>' + CRLF 
     cMensagem += '<br>' + CRLF
-    cMensagem += 'AbraÁos da equipe LucasRocha!!!'+ '<br>' + CRLF 
-    cMensagem += "http://www.LucasRocha.com.br"+ '<br>' + CRLF 
+    cMensagem += 'Abra√ßos da equipe LucasRocha!!!'+ '<br>' + CRLF 
+    cMensagem += "lucas.8.rocha@hotmail.com"+ '<br>' + CRLF 
     cMensagem += '<br>' + CRLF
     cMensagem += 'Copyright ' + cValToChar(dAno) + ' - LucasRocha. Todos os direitos reservados.'
 
 
     //---------------------------------------------------------------
-    // Mensagem que ser· enviada ao cliente no boleto
+    // Mensagem que ser√° enviada ao cliente no boleto
     //---------------------------------------------------------------
     cMsgBol := 'Seu boleto foi gerado: '  + cFolha + '<br>' 
 
     //---------------------------------------------------------------
-    // Mensagem que ser· enviada ao cliente na OS
+    // Mensagem que ser√° enviada ao cliente na OS
     //---------------------------------------------------------------
     cMsgOs  := 'Referente a OS: '  + cFolha + '<br>' 
 
     //---------------------------------------------------------------
-    // Mensagem que ser· enviada ao cliente - RPS
+    // Mensagem que ser√° enviada ao cliente - RPS
     //---------------------------------------------------------------
-    cMsgRPS := '<b>'+'Ol· ' + cNome + '</b>, ' + '<br>' + CRLF
+    cMsgRPS := '<b>'+'Ol√° ' + cNome + '</b>, ' + '<br>' + CRLF
     cMsgRPS += '<br>' + CRLF
-    cMsgRPS += 'Sua Nota Fiscal EletrÙnica foi gerada.'  + cFolha + '<br>' + CRLF
+    cMsgRPS += 'Sua Nota Fiscal Eletr√¥nica foi gerada.'  + cFolha + '<br>' + CRLF
     cMsgRPS += '<br>' + CRLF
-    cMsgRPS += 'N˙mero do RPS : '+ (Self:_cAlias)->F2_NFELETR + 'SÈrie: '+ (Self:_cAlias)->F2_SERIE + '<br>' + CRLF 
+    cMsgRPS += 'N√∫mero do RPS : '+ (Self:_cAlias)->F2_NFELETR + 'S√©rie: '+ (Self:_cAlias)->F2_SERIE + '<br>' + CRLF 
     cMsgRPS += '<br>' + CRLF
-    cMsgRPS += 'Esta mensagem foi enviada automaticamente pelo Sistema de Nota Fiscal EletrÙnica (NF-e) da LucasRocha '+ '<br>' + CRLF 
-    cMsgRPS += 'Caso tenha alguma d˙vida, È sÛ contatar a nossa equipe:'+ '<br>' + CRLF 
+    cMsgRPS += 'Esta mensagem foi enviada automaticamente pelo Sistema de Nota Fiscal Eletr√¥nica (NF-e) da LucasRocha '+ '<br>' + CRLF 
+    cMsgRPS += 'Caso tenha alguma d√∫vida, √© s√≥ contatar a nossa equipe:'+ '<br>' + CRLF 
     cMsgRPS += 'financeiro@LucasRocha.com.br'+ '<br>' + CRLF 
     cMsgRPS += '(61)3030-3666'+ '<br>' + CRLF 
     cMsgRPS += '<br>' + CRLF
-    cMsgRPS += 'AbraÁos da equipe LucasRocha!!!'+ '<br>' + CRLF 
-    cMsgRPS += "http://www.LucasRocha.com.br"+ '<br>' + CRLF 
+    cMsgRPS += 'Abra√ßos da equipe LucasRocha!!!'+ '<br>' + CRLF 
+    cMsgRPS += "lucas.8.rocha@hotmail.com"+ '<br>' + CRLF 
     cMsgRPS += '<br>' + CRLF
     cMsgRPS += 'Copyright ' + cValToChar(dAno) + ' - LucasRocha. Todos os direitos reservados.'
 
@@ -1514,8 +1502,8 @@ Return
 
 /**************************************************************************************************
 {Protheus.doc} ZAPLV
-@description	FunÁ„o que gera o arquivo xml da nota (normal ou cancelada) atravÈs do 
-                documento e da sÈrie disponibilizados
+@description	Fun√ß√£o que gera o arquivo xml da nota (normal ou cancelada) atrav√©s do 
+                documento e da s√©rie disponibilizados
 @type   		Method 
 @author			Lucas Rocha Vieira
 @version   		1.00
@@ -1548,7 +1536,7 @@ Method mXML(cDocumento, cSerie, cArqXML, lMostra) Class ZAPLV
         cDocumento := PadR(cDocumento, TamSX3('F2_DOC')[1])
         cSerie     := PadR(cSerie,     TamSX3('F2_SERIE')[1])
          
-        //Instancia a conex„o com o WebService do TSS    
+        //Instancia a conex√£o com o WebService do TSS    
         oWebServ:= WSNFeSBRA():New()
         oWebServ:cUSERTOKEN        := "TOTVS"
         oWebServ:cID_ENT           := cIdEnt
@@ -1569,7 +1557,7 @@ Method mXML(cDocumento, cSerie, cArqXML, lMostra) Class ZAPLV
                 If oWebServ:oWsRetornaNotasResult:OWSNOTAS:oWSNFES3[1]:oWSNFECANCELADA != Nil
                     cTextoXML := oWebServ:oWsRetornaNotasResult:OWSNOTAS:oWSNFES3[1]:oWSNFECANCELADA:cXML
                      
-                //Sen„o, pega o xml normal
+                //Sen√£o, pega o xml normal
                 Else
                     cTextoXML := oWebServ:oWsRetornaNotasResult:OWSNOTAS:oWSNFES3[1]:oWSNFE:cXML
                 EndIf
@@ -1578,21 +1566,21 @@ Method mXML(cDocumento, cSerie, cArqXML, lMostra) Class ZAPLV
                 MemoWrite(cArqXML, cTextoXML)
                 _lRetorno := .T.
                  
-                //Se for para mostrar, ser· mostrado um aviso com o conte˙do
+                //Se for para mostrar, ser√° mostrado um aviso com o conte√∫do
                 If lMostra
                     Aviso("mXML", cTextoXML, {"Ok"}, 3)
                 EndIf
                  
-            //Caso n„o encontre as notas, mostra mensagem
+            //Caso n√£o encontre as notas, mostra mensagem
             Else
-                ConOut("mXML > Verificar par‚metros, documento e sÈrie n„o encontrados ("+cDocumento+"/"+cSerie+")...")
+                ConOut("mXML > Verificar par√¢metros, documento e s√©rie n√£o encontrados ("+cDocumento+"/"+cSerie+")...")
                  
                 If lMostra
-                    Aviso("mXML", "Verificar par‚metros, documento e sÈrie n„o encontrados ("+cDocumento+"/"+cSerie+")...", {"Ok"}, 3)
+                    Aviso("mXML", "Verificar par√¢metros, documento e s√©rie n√£o encontrados ("+cDocumento+"/"+cSerie+")...", {"Ok"}, 3)
                 EndIf
             EndIf
          
-        //Sen„o, houve erros na classe
+        //Sen√£o, houve erros na classe
         Else
             ConOut("mXML > "+IIf(Empty(GetWscError(3)), GetWscError(1), GetWscError(3))+"...")
              
@@ -1609,7 +1597,7 @@ Return(_lRetorno)
 
 /**************************************************************************************************
 {Protheus.doc} ZAPLV
-@description	Metodo que gera a danfe e o xml de uma nota em uma pasta passada por par‚metro
+@description	Metodo que gera a danfe e o xml de uma nota em uma pasta passada por par√¢metro
 @type   		Method 
 @author			Lucas Rocha Vieira
 @version   		1.00
@@ -1646,7 +1634,7 @@ Method mDanfe(cNota, cSerie, cPasta, cArqDanfe) Class ZAPLV
     //Pega o IDENT da empresa
     cIdent := RetIdEnti()
     // 151 001 
-    //Se o ˙ltimo caracter da pasta n„o for barra, ser· barra para integridade
+    //Se o √∫ltimo caracter da pasta n√£o for barra, ser√° barra para integridade
     If SubStr(cPasta, Len(cPasta), 1) != "\"
         cPasta += "\"
     EndIf
@@ -1657,7 +1645,7 @@ Method mDanfe(cNota, cSerie, cPasta, cArqDanfe) Class ZAPLV
     Pergunte("NFSIGW", .F.)
     MV_PAR01 :=Self:_cNota                 //Nota Inicial
     MV_PAR02 :=Self:_cNota                 //Nota Final
-    MV_PAR03 := cSerie                     //SÈrie da Nota
+    MV_PAR03 := cSerie                     //S√©rie da Nota
     MV_PAR04 := 2                          //NF de Saida
     MV_PAR05 := 1                          //Frente e Verso = Sim
     MV_PAR06 := 2                          //DANFE simplificado = Nao
@@ -1712,13 +1700,13 @@ Method mDanfe(cNota, cSerie, cPasta, cArqDanfe) Class ZAPLV
     oDanfe:SetPaperSize(DMPAPER_A4)
     oDanfe:SetMargin(60,60,60,60)
 
-    //ForÁa a impress„o em PDF
+    //For√ßa a impress√£o em PDF
     oDanfe:nDevice  := 6
     oDanfe:cPathPDF := cPasta            
     oDanfe:lServer  := .T.
     oDanfe:lViewPDF := .F.
              
-    //Vari·veis obrigatÛrias da DANFE (pode colocar outras abaixo)
+    //Vari√°veis obrigat√≥rias da DANFE (pode colocar outras abaixo)
 	PixelX    := oDanfe:nLogPixelX()
 	PixelY    := oDanfe:nLogPixelY()
 	nConsNeg  := 0.4
@@ -1729,7 +1717,7 @@ Method mDanfe(cNota, cSerie, cPasta, cArqDanfe) Class ZAPLV
 	nColAux   := 0
     NMAXITEM  := 0
 
-    //Chamando a impress„o da danfe no RDMAKE
+    //Chamando a impress√£o da danfe no RDMAKE
     StaticCall(DANFEIII, DanfeProc, @oDanfe, @lEnd, cIdent, , , .F.)
 
     //Imprimi o arquivo 
