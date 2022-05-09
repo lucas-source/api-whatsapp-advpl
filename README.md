@@ -4,8 +4,10 @@
 
 Foi configurado um job no AppServer para o envio de mensagens e documentos atráves do aplicativo Whatsapp.
 
-Job: 
+*Job: *
 
 <p align="left">
   <img src="printAppServer.png" >
 </p>
+
+Documentos
