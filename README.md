@@ -10,6 +10,11 @@ Foi configurado um job no AppServer para o envio de mensagens e documentos atrá
   <img src="printAppServer.png" >
 </p>
 
+**Mensagem:**
+<p align="left">
+  <img src="fotowhts.png" >
+</p>
+
 **Documentos enviados**
 * Nota fiscal de saída (DANFE)
 * Nota fiscal de entrada (RPS)
