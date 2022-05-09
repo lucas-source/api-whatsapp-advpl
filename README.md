@@ -7,5 +7,5 @@ Foi configurado um job no AppServer para o envio de mensagens e documentos atrá
 Job: 
 
 <p align="center">
-  <img src="prinAppServer.png" >
+  <img src="printAppServer.png" >
 </p>
